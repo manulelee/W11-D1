@@ -9,6 +9,12 @@ const Favourites = () => {
 
   return (
     <Row>
+      <Col>
+        <Link to="/" className="m-2 btn btn-success">
+          HOME
+        </Link>
+      </Col>
+
       <Col sm={12}>
         <ul style={{ listStyle: "none" }}>
           {myFav.map((fav, i) => (
@@ -25,9 +31,7 @@ const Favourites = () => {
               >
                 <FaTrash />
               </Button>
-              <Link className="text-decoration-none text-dark" to={`/${fav}`}>
-                {fav}
-              </Link>
+              <Link to={`/${fav}`}>{fav}</Link>
             </li>
           ))}
         </ul>
