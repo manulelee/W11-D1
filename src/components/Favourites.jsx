@@ -4,7 +4,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Favourites = () => {
-  const myFav = useSelector((state) => state.favourites.content);
+  const myFav = useSelector((state) => state.favourites.favourites.content);
   const dispatch = useDispatch();
 
   return (

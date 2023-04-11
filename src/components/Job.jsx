@@ -2,6 +2,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BsFillStarFill } from "react-icons/bs";
 
+import { addFavourites } from "../redux/actions";
 import { useDispatch } from "react-redux";
 
 const Job = ({ data }) => {
@@ -13,10 +14,7 @@ const Job = ({ data }) => {
           className="mx-2"
           variant="success"
           onClick={() => {
-            dispatch({
-              type: "ADD_FAVOURITES",
-              payload: data.company_name,
-            });
+            dispatch(addFavourites(data.company_name));
           }}
         >
           <BsFillStarFill />
