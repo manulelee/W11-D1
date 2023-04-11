@@ -2,8 +2,8 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BsFillStarFill } from "react-icons/bs";
 
-import { addFavourites } from "../redux/actions";
 import { useDispatch } from "react-redux";
+import { addFavourites } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();

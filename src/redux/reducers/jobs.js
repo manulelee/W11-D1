@@ -12,7 +12,7 @@ const jobsReducer = (state = initialState, action) => {
       return {
         ...state,
         jobs: {
-          content: [action.payload],
+          content: action.payload,
         },
       };
     default:

@@ -16,10 +16,26 @@ export const removeFavourites = (i) => {
   };
 };
 
-export const setJobs = (payload) => {
+export const setJobs = (jobsData) => {
   return {
     type: SET_JOBS,
-    payload,
+    payload: jobsData,
+  };
+};
+export const getCompanyJobs = (baseEndpoint, params) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(baseEndpoint + params.companyName);
+      if (response.ok) {
+        const { data } = await response.json();
+        dispatch(setJobs(data));
+        console.log("ELENCO DEI LAVORI:", data);
+      } else {
+        alert("Error fetching results");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -29,8 +45,8 @@ export const fetchJobs = (baseEndpoint, query) => {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {
         const { data } = await response.json();
-        console.log("FETCH ESEGUITA:", data);
         dispatch(setJobs(data));
+        console.log("FETCH ESEGUITA:", data);
       } else {
         alert("Error fetching results");
       }

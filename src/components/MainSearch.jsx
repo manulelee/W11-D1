@@ -4,8 +4,10 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Job from "./Job";
 import { fetchJobs } from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 const MainSearch = () => {
+  const dispatch = useDispatch();
   const [query, setQuery] = useState("");
   const jobs = useSelector((state) => state.jobs.jobs.content);
 
@@ -17,7 +19,7 @@ const MainSearch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetchJobs(baseEndpoint, query);
+    dispatch(fetchJobs(baseEndpoint, query));
   };
 
   return (
